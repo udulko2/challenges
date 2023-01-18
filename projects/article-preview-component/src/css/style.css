@@ -1,0 +1,249 @@
+/*** Reset CSS rules ***/
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html, body, div, h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/*** CSS Variables ***/
+:root {
+  --very-dark-grayish-blue: hsl(217, 19%, 35%);
+  --desaturated-dark-blue: hsl(214, 17%, 51%);
+  --grayish-blue: hsl(212, 23%, 69%);
+  --light-grayish-blue: hsl(210, 46%, 95%);
+}
+
+/*** Default styles ***/
+body {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  font-size: 0.8125rem;
+  color: var(--desaturated-dark-blue);
+  line-height: 1.5;
+}
+
+/*** CSS rules ***/
+.container {
+  /* max-width: 1440px; */
+  width: 100%;
+  height: 100vh;
+  background-color: var(--light-grayish-blue);
+  /* position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); */
+}
+
+.wrapper {
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.component {
+  max-width: 330px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.article-image {
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: 0 26%;
+  border-radius: 10px 10px 0 0;
+}
+
+.article-body {
+  padding: 34px 36px 15px;
+}
+
+.article-title {
+  font-size: 1rem;
+  color: var(--very-dark-grayish-blue);
+  margin-bottom: 12px;
+}
+
+.article-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 36px 13px;
+  border-radius: 0 0 10px 10px;
+  position: relative;
+}
+
+.share-options-base {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--very-dark-grayish-blue);
+}
+
+.share-options-base > span {
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: var(--grayish-blue);
+}
+
+.share-options-base > svg {
+  cursor: pointer;
+}
+
+.tooltipster-sidetip.tooltipster-borderless.tooltip-customized .tooltipster-box {
+  background: var(--very-dark-grayish-blue);
+  border-radius: 10px;
+}
+
+.tooltipster-sidetip.tooltipster-borderless.tooltip-customized .tooltipster-content {
+  padding: 18px 38px;
+}
+
+.tooltipster-sidetip.tooltipster-borderless.tooltip-customized .tooltipster-arrow-border {
+  border-top-color: var(--very-dark-grayish-blue);
+}
+
+.share-options-content {
+  /* width: 100%; */
+  background: var(--very-dark-grayish-blue);
+  border-radius: 0 0 10px 10px;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-left: 36px;
+  /* padding-top: 22px; */
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transition: .3s linear;
+}
+
+.share-options-content.share-options-base {
+  justify-content: flex-start;
+}
+
+.share-options-content.share-active {
+  z-index: 1;
+  opacity: 1;
+}
+
+.article-info {
+  display: flex;
+  align-items: center;
+  height: 2.75rem;
+  gap: 1rem;
+}
+
+.article-author-photo {
+  width: 2.75rem;
+  border-radius: 50%;
+}
+
+.article-author-name {
+  font-weight: 700;
+  color: var(--very-dark-grayish-blue);
+}
+
+.article-date {
+  color: var(--grayish-blue);
+}
+
+.article-share-circle {
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--light-grayish-blue);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.article-share-circle > svg {
+  display: block;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.article-share-circle.tooltip-active,
+.article-share-circle.share-active {
+  background-color: var(--desaturated-dark-blue);
+}
+
+.article-share-circle.tooltip-active > svg path,
+.article-share-circle.share-active > svg path {
+  fill: #fff;
+}
+
+.tooltip_templates {
+  display: none;
+}
+
+@media (min-width: 1000px) {
+  .component {
+    display: flex;
+    max-width: 730px;
+  }
+
+  .article-title {
+    font-size: 1.25rem;
+  }
+
+  .article-image {
+    width: 39%;
+    height: auto;
+    border-radius: 10px 0 0 10px;
+    flex-shrink: 0;
+  }
+
+  .article-body {
+    padding: 32px 36px 19px;
+  }
+
+  .article-footer {
+    padding: 2px 36px 24px;
+    border-radius: 0 0 10px 0;
+  }
+
+  .share-options-content {
+    border-radius: 0 0 10px 0;
+  }
+
+  .share-options-content.share-active {
+    z-index: -1;
+    opacity: 0;
+  }
+
+  .article-share-circle.share-active {
+    background-color: var(--light-grayish-blue);
+  }
+
+  .article-share-circle.share-active > svg path {
+    fill: #6E8098;
+  }
+}
